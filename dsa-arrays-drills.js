@@ -118,7 +118,15 @@ Input:[1, 3, 9, 4]
 Output:[108, 36, 12, 27]
 
 ============*/
+function products(arr) {
+  let total = arr.reduce((a, b) => a * b);
+  let products = [];
+  arr.forEach(val => products.push(total/val));
+  return products;
+}
 
+// console.log(products([1, 3, 9, 4, 10]))
+//complexity:O(n^2) 
 
 /*============
 
@@ -140,6 +148,38 @@ Output:
 
 ============*/
 
+function twoDArray(arr){
+   const zeroArr = [...arr];
+   const col = [];
+   const row = [];
+   for(let i=0;i<arr.length;i++){
+         if (arr[i].includes(0)) {
+    for(let j=0; j<arr[i].length;j++){
+      if(zeroArr[i][j]===0 && arr[i].includes(0)) {
+    if col[i] = true;
+    if row[j] = true;     
+      }
+    }
+  }
+}
+
+for (let i=0; i< zeroArr.length; i++) {
+    for (let j=0; j<zeroArr.length; j++) {
+      if (row[i] || col[j]) {
+        zeroArr[i][j] = 0;
+      }
+    }
+  }
+
+  // console.log(zeroArr);
+
+  // twoDArray([[1,0,1,1,0],
+  // [0,1,1,1,0],
+  // [1,1,1,1,1],
+  // [1,0,1,1,1],
+  // [1,1,1,1,1]]);
+
+  //complexity: O(n^2)
 /*============
 
 12. String rotation
@@ -153,3 +193,18 @@ Input: amazon, azonam
 
 Output: true
 =================*/
+
+function isValidRotation(str1, str2) {
+    let isValid = false;
+    for (let i = 0; i < str2.length; i < i++) {
+      let tempStr = str2.slice(i) + str2.slice(0, i)
+      console.log(tempStr);
+      if (str1 === tempStr) {
+        isValid = true;
+      }
+    }
+    return isValid
+  }
+
+ // console.log(isValidRotation('amazon', 'azonma'))
+ //complexity: O(n)
